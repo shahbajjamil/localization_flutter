@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:localization_flutter_youtube/generated/l10n.dart';
@@ -6,9 +7,11 @@ import 'package:localization_flutter_youtube/screen/provider/localization_provid
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_) => LocalizationProvider()..init()),
-  ], child: const MyApp()));
+  runApp(DevicePreview(
+    builder: (context) => MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_) => LocalizationProvider()..init()),
+    ], child: const MyApp()),
+  ));
 }
 
 class MyApp extends StatelessWidget {
